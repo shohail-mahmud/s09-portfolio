@@ -18,7 +18,7 @@ const App = () => (
     <TooltipProvider>
       <BrowserRouter>
         <ScrollToTop />
-        <div className="relative min-h-screen w-full overflow-hidden bg-[#FFFFFF] text-[#000000]">
+        <div className="relative h-screen w-full overflow-hidden bg-[#FFFFFF] text-[#000000]">
           <BackgroundVideo />
           <Navbar />
           <main className="relative z-10">
