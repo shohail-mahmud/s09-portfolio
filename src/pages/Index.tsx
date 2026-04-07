@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
-    <section className="flex h-[calc(100vh-80px)] overflow-hidden flex-col items-center justify-center px-6 pb-12 text-center">
+    <section className="flex h-[calc(100vh-80px)] overflow-hidden flex-col items-center justify-center px-6 pb-12 text-center" style={{ overscrollBehavior: "none" }}>
       <h1
         className="animate-fade-rise max-w-7xl text-5xl font-normal text-[#000000] sm:text-7xl md:text-8xl"
         style={{
