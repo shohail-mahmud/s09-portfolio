@@ -1,6 +1,6 @@
 export default function About() {
   return (
-    <section className="animate-fade-rise mx-auto max-w-3xl px-6 h-[calc(100vh-88px)] overflow-hidden flex flex-col justify-center text-center">
+    <section className="animate-fade-rise mx-auto max-w-3xl px-6 h-[calc(100vh-88px)] overflow-hidden flex flex-col justify-center text-center -mt-12">
       <h2
         className="text-5xl font-normal text-[#000000]"
         style={{ fontFamily: "var(--font-display)", textShadow: "0 2px 10px rgba(0,0,0,0.15)" }}
@@ -12,7 +12,7 @@ export default function About() {
         creativity, and history. I use modern AI tools to turn simple concepts into
         meaningful digital experiences.
       </p>
-      <p className="mt-8 whitespace-pre-line text-base leading-relaxed text-[#4A4A4A] sm:text-lg">
+      <p className="mt-4 whitespace-pre-line text-base leading-relaxed text-[#4A4A4A] sm:text-lg">
         I don&apos;t follow a fixed path.{"\n\n"}
         I explore ideas, experiment with tools, and build what feels meaningful.{"\n\n"}
         From digital experiences to historical curiosity, my work is driven by simplicity,
