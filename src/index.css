@@ -1,10 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:opsz,wght@14..32,100..900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --font-display: "Georgia", serif;
+    --font-display: "Instrument Serif", Georgia, serif;
+    --font-body: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 
     --background: 0 0% 100%;
     --foreground: 0 0% 0%;
@@ -53,6 +56,7 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-body);
   }
   html {
     scroll-behavior: smooth;
