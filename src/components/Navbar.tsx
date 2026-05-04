@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { NavLink, Link, useLocation } from "react-router-dom";
 import { Moon, Sun } from "lucide-react";
 import { useDarkMode } from "@/hooks/use-dark-mode";
+import logo from "@/assets/logo.png";
 
 const NAV_ITEMS = [
   { name: "Home", path: "/" },
