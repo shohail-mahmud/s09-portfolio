@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { NavLink, Link, useLocation } from "react-router-dom";
 import { Moon, Sun } from "lucide-react";
 import { useDarkMode } from "@/hooks/use-dark-mode";
+import logo from "@/assets/logo.png";
 
 const NAV_ITEMS = [
   { name: "Home", path: "/" },
@@ -25,10 +26,14 @@ export default function Navbar() {
       <nav className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-6 md:px-8">
         <Link
           to="/"
-          className="relative z-50 text-2xl tracking-tight text-[#000000] dark:text-[#FFFFFF] sm:text-3xl"
-          style={{ fontFamily: "var(--font-display)" }}
+          aria-label="S09 Home"
+          className="relative z-50 flex items-center"
         >
-          S09<sup className="text-base align-super ml-0.5">©</sup>
+          <img
+            src={logo}
+            alt="S09 logo"
+            className="h-10 w-auto sm:h-12 dark:invert"
+          />
         </Link>
 
         {/* Desktop Menu */}
