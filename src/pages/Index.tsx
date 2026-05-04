@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <section className="flex h-[calc(100dvh-80px)] overflow-hidden flex-col items-center justify-center px-6 pb-12 text-center">
       <h1
-        className="animate-fade-rise max-w-7xl text-5xl font-normal text-[#000000] sm:text-7xl md:text-8xl"
+        className="animate-fade-rise max-w-7xl text-5xl font-normal text-[#000000] dark:text-[#FFFFFF] sm:text-7xl md:text-8xl"
         style={{
           fontFamily: "var(--font-display)",
           lineHeight: 0.95,
@@ -12,13 +12,13 @@ export default function Home() {
           textShadow: "0 2px 10px rgba(0,0,0,0.15)",
         }}
       >
-        Between <span className="italic text-[#4A4A4A]">code</span> and{" "}
-        <span className="italic text-[#4A4A4A]">curiosity</span>, I explore and create.
+        Between <span className="italic text-[#4A4A4A] dark:text-[#B5B5B5]">code</span> and{" "}
+        <span className="italic text-[#4A4A4A] dark:text-[#B5B5B5]">curiosity</span>, I explore and create.
       </h1>
 
       <Link
         to="/about"
-        className="animate-fade-rise-delay mt-12 rounded-full bg-[#000000] px-14 py-5 text-base text-[#FFFFFF] transition-transform duration-200 hover:scale-[1.03]"
+        className="animate-fade-rise-delay mt-12 rounded-full bg-[#000000] px-14 py-5 text-base text-[#FFFFFF] transition-transform duration-200 hover:scale-[1.03] dark:bg-[#FFFFFF] dark:text-[#000000]"
       >
         About Me
       </Link>

@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { NavLink, Link, useLocation } from "react-router-dom";
+import { Moon, Sun } from "lucide-react";
+import { useDarkMode } from "@/hooks/use-dark-mode";
 
 const NAV_ITEMS = [
   { name: "Home", path: "/" },
@@ -12,6 +14,7 @@ const NAV_ITEMS = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const { pathname } = useLocation();
+  const { isDark, toggle } = useDarkMode();
 
   useEffect(() => {
     setIsOpen(false);
@@ -22,7 +25,7 @@ export default function Navbar() {
       <nav className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-6 md:px-8">
         <Link
           to="/"
-          className="relative z-50 text-2xl tracking-tight text-[#000000] sm:text-3xl"
+          className="relative z-50 text-2xl tracking-tight text-[#000000] dark:text-[#FFFFFF] sm:text-3xl"
           style={{ fontFamily: "var(--font-display)" }}
         >
           S09<sup className="text-base align-super ml-0.5">©</sup>
@@ -35,8 +38,10 @@ export default function Navbar() {
               <NavLink
                 to={item.path}
                 className={({ isActive }) =>
-                  `transition-colors hover:text-[#000000] ${
-                    isActive ? "text-[#000000]" : "text-[#4A4A4A]"
+                  `transition-colors hover:text-[#000000] dark:hover:text-[#FFFFFF] ${
+                    isActive
+                      ? "text-[#000000] dark:text-[#FFFFFF]"
+                      : "text-[#4A4A4A] dark:text-[#B5B5B5]"
                   }`
                 }
               >
@@ -47,16 +52,24 @@ export default function Navbar() {
         </ul>
 
         <div className="flex items-center gap-4">
+          <button
+            onClick={toggle}
+            aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+            className="relative z-50 flex h-9 w-9 items-center justify-center rounded-full border border-[#000000]/10 bg-white/60 text-[#000000] backdrop-blur transition-colors hover:bg-white dark:border-white/20 dark:bg-white/10 dark:text-[#FFFFFF] dark:hover:bg-white/20"
+          >
+            {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+          </button>
+
           <Link
             to="/work"
-            className="hidden rounded-full bg-[#000000] px-6 py-2.5 text-sm text-[#FFFFFF] transition-transform duration-200 hover:scale-[1.03] sm:block"
+            className="hidden rounded-full bg-[#000000] px-6 py-2.5 text-sm text-[#FFFFFF] transition-transform duration-200 hover:scale-[1.03] dark:bg-[#FFFFFF] dark:text-[#000000] sm:block"
           >
             Begin Journey
           </Link>
 
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="relative z-50 flex h-8 w-8 items-center justify-center text-[#000000] md:hidden"
+            className="relative z-50 flex h-8 w-8 items-center justify-center text-[#000000] dark:text-[#FFFFFF] md:hidden"
             aria-label="Toggle Menu"
           >
             <div className="flex flex-col gap-1.5">
@@ -81,7 +94,7 @@ export default function Navbar() {
 
         {/* Mobile Sidebar */}
         <div
-          className={`fixed inset-0 z-40 bg-white/95 backdrop-blur-md transition-transform duration-500 ease-in-out md:hidden ${
+          className={`fixed inset-0 z-40 bg-white/95 backdrop-blur-md transition-transform duration-500 ease-in-out dark:bg-black/95 md:hidden ${
             isOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
@@ -91,8 +104,10 @@ export default function Navbar() {
                 key={item.path}
                 to={item.path}
                 className={({ isActive }) =>
-                  `text-2xl transition-colors hover:text-[#000000] ${
-                    isActive ? "text-[#000000]" : "text-[#4A4A4A]"
+                  `text-2xl transition-colors hover:text-[#000000] dark:hover:text-[#FFFFFF] ${
+                    isActive
+                      ? "text-[#000000] dark:text-[#FFFFFF]"
+                      : "text-[#4A4A4A] dark:text-[#B5B5B5]"
                   }`
                 }
                 style={{ fontFamily: "var(--font-display)" }}
@@ -102,7 +117,7 @@ export default function Navbar() {
             ))}
             <Link
               to="/work"
-              className="mt-4 rounded-full bg-[#000000] px-8 py-4 text-base text-[#FFFFFF] transition-transform duration-200"
+              className="mt-4 rounded-full bg-[#000000] px-8 py-4 text-base text-[#FFFFFF] transition-transform duration-200 dark:bg-[#FFFFFF] dark:text-[#000000]"
             >
               Begin Journey
             </Link>
