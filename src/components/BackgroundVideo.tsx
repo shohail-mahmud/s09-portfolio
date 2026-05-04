@@ -75,10 +75,8 @@ export default function BackgroundVideo() {
         autoPlay
         loop={isDark}
         muted
-        defaultMuted
         playsInline
-        // @ts-expect-error - non-standard but widely supported iOS attr
-        webkit-playsinline="true"
+        {...({ "webkit-playsinline": "true" } as Record<string, string>)}
         disablePictureInPicture
         disableRemotePlayback
         preload="metadata"
