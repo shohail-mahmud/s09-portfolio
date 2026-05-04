@@ -27,13 +27,16 @@ export default function Navbar() {
         <Link
           to="/"
           aria-label="S09 Home"
-          className="relative z-50 flex items-center"
+          className="relative z-50 flex items-start"
         >
           <img
             src={logo}
             alt="S09 logo"
+            width="48"
+            height="48"
             className="h-10 w-auto sm:h-12 dark:invert"
           />
+          <sup className="ml-0.5 mt-1 text-xs text-[#000000] dark:text-[#FFFFFF] sm:text-sm">©</sup>
         </Link>
 
         {/* Desktop Menu */}
