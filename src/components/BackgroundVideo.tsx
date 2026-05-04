@@ -68,15 +68,22 @@ export default function BackgroundVideo() {
         className="absolute h-full w-full object-cover"
         style={
           isDark
-            ? { inset: 0, opacity: 1 }
-            : { top: "300px", inset: "auto 0 0 0", opacity: 0 }
+            ? { inset: 0, opacity: 1, willChange: "opacity" }
+            : { top: "300px", inset: "auto 0 0 0", opacity: 0, willChange: "opacity" }
         }
         src={isDark ? DARK_VIDEO_URL : LIGHT_VIDEO_URL}
         autoPlay
         loop={isDark}
         muted
+        defaultMuted
         playsInline
-        preload="auto"
+        // @ts-expect-error - non-standard but widely supported iOS attr
+        webkit-playsinline="true"
+        disablePictureInPicture
+        disableRemotePlayback
+        preload="metadata"
+        aria-hidden="true"
+        tabIndex={-1}
       />
       {!isDark && (
         <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/40 to-white/80" />
