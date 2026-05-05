@@ -27,19 +27,13 @@ export default function BackgroundVideo() {
   const animationFrameRef = useRef<number | null>(null);
   const restartTimeoutRef = useRef<number | null>(null);
 
-  // Kick off playback for both videos once mounted so switching is instant.
+  // Warm up both videos immediately so theme switching doesn't wait for a new request.
   useEffect(() => {
+    lightRef.current?.load();
+    darkRef.current?.load();
     void lightRef.current?.play().catch(() => undefined);
     void darkRef.current?.play().catch(() => undefined);
   }, []);
-
-  // Pause the inactive video to save CPU/battery; resume the active one.
-  useEffect(() => {
-    const active = isDark ? darkRef.current : lightRef.current;
-    const inactive = isDark ? lightRef.current : darkRef.current;
-    if (active) void active.play().catch(() => undefined);
-    if (inactive) inactive.pause();
-  }, [isDark]);
 
   // Fade choreography for the LIGHT video only (dark loops cleanly).
   useEffect(() => {
@@ -84,30 +78,29 @@ export default function BackgroundVideo() {
   return (
     <div className="absolute inset-0 z-0">
       {/* Light-mode video — kept mounted, hidden in dark mode */}
-      <video
-        ref={lightRef}
-        className="absolute h-full w-full object-cover"
-        style={{
-          top: "300px",
-          inset: "auto 0 0 0",
-          opacity: 0,
-          willChange: "opacity",
-          visibility: isDark ? "hidden" : "visible",
-        }}
-        src={LIGHT_VIDEO_URL}
-        loop={false}
-        {...sharedVideoProps}
-        {...iosAttr}
-      />
+      <div
+        className="absolute inset-0 transition-opacity duration-300"
+        style={{ opacity: isDark ? 0 : 1, pointerEvents: "none" }}
+      >
+        <video
+          ref={lightRef}
+          className="absolute inset-0 h-full w-full object-cover"
+          style={{ opacity: 0, willChange: "opacity" }}
+          src={LIGHT_VIDEO_URL}
+          loop={false}
+          {...sharedVideoProps}
+          {...iosAttr}
+        />
+      </div>
 
       {/* Dark-mode video — kept mounted, hidden in light mode */}
       <video
         ref={darkRef}
-        className="absolute h-full w-full object-cover"
+        className="absolute inset-0 h-full w-full object-cover transition-opacity duration-300"
         style={{
-          inset: 0,
+          opacity: isDark ? 1 : 0,
           willChange: "opacity",
-          visibility: isDark ? "visible" : "hidden",
+          pointerEvents: "none",
         }}
         src={DARK_VIDEO_URL}
         loop
@@ -115,9 +108,6 @@ export default function BackgroundVideo() {
         {...iosAttr}
       />
 
-      {!isDark && (
-        <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/40 to-white/80" />
-      )}
       {isDark && <div className="absolute inset-0 bg-black/40" />}
     </div>
   );
