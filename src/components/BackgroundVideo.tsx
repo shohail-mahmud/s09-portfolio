@@ -42,9 +42,9 @@ export default function BackgroundVideo() {
         <video
           ref={lightRef}
           className="absolute inset-0 h-full w-full object-cover"
-          style={{ opacity: 0, willChange: "opacity" }}
+          style={{ willChange: "opacity" }}
           src={LIGHT_VIDEO_URL}
-          loop={false}
+          loop
           {...sharedVideoProps}
           {...iosAttr}
         />
