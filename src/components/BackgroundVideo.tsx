@@ -24,55 +24,12 @@ export default function BackgroundVideo() {
   const { isDark } = useDarkMode();
   const lightRef = useRef<HTMLVideoElement | null>(null);
   const darkRef = useRef<HTMLVideoElement | null>(null);
-  const animationFrameRef = useRef<number | null>(null);
-  const restartTimeoutRef = useRef<number | null>(null);
-
   // Warm up both videos immediately so theme switching doesn't wait for a new request.
   useEffect(() => {
     lightRef.current?.load();
     darkRef.current?.load();
     void lightRef.current?.play().catch(() => undefined);
     void darkRef.current?.play().catch(() => undefined);
-  }, []);
-
-  // Fade choreography for the LIGHT video only (dark loops cleanly).
-  useEffect(() => {
-    const video = lightRef.current;
-    if (!video) return;
-
-    const fadeDuration = 0.5;
-
-    const updateFadeOpacity = () => {
-      const { currentTime, duration } = video;
-      if (Number.isFinite(duration) && duration > 0) {
-        let opacity = 1;
-        if (currentTime <= fadeDuration) {
-          opacity = Math.max(0, currentTime / fadeDuration);
-        } else if (duration - currentTime <= fadeDuration) {
-          opacity = Math.max(0, (duration - currentTime) / fadeDuration);
-        }
-        video.style.opacity = opacity.toString();
-      }
-      animationFrameRef.current = requestAnimationFrame(updateFadeOpacity);
-    };
-
-    const handleEnded = () => {
-      video.style.opacity = "0";
-      if (restartTimeoutRef.current) window.clearTimeout(restartTimeoutRef.current);
-      restartTimeoutRef.current = window.setTimeout(() => {
-        video.currentTime = 0;
-        void video.play().catch(() => undefined);
-      }, 100);
-    };
-
-    video.addEventListener("ended", handleEnded);
-    animationFrameRef.current = requestAnimationFrame(updateFadeOpacity);
-
-    return () => {
-      video.removeEventListener("ended", handleEnded);
-      if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current);
-      if (restartTimeoutRef.current) window.clearTimeout(restartTimeoutRef.current);
-    };
   }, []);
 
   return (
