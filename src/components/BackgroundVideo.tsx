@@ -65,7 +65,11 @@ export default function BackgroundVideo() {
         {...iosAttr}
       />
 
-      {isDark && <div className="absolute inset-0 bg-black/40" />}
+      {isDark ? (
+        <div className="absolute inset-0 bg-black/40" />
+      ) : (
+        <div className="absolute inset-0 bg-white/25 backdrop-blur-[3px]" />
+      )}
     </div>
   );
 }
