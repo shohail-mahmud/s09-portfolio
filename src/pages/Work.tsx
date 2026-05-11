@@ -7,7 +7,7 @@ export default function Work() {
       >
         Work
       </h2>
-      <p className="mt-8 text-base leading-relaxed text-[#4A4A4A] dark:text-[#B5B5B5] sm:text-lg">
+      <p className="mt-8 text-base leading-relaxed text-[#1A1A1A] dark:text-[#B5B5B5] sm:text-lg">
         Selected explorations and experiments are available on my GitHub.
       </p>
       <a

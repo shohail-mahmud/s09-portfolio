@@ -7,12 +7,12 @@ export default function About() {
       >
         About
       </h2>
-      <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-[#4A4A4A] dark:text-[#B5B5B5] sm:text-lg">
+      <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-[#1A1A1A] dark:text-[#B5B5B5] sm:text-lg">
         I&apos;m Shohail Mahmud, a builder from Bangladesh exploring ideas through code,
         creativity, and history. I use modern AI tools to turn simple concepts into
         meaningful digital experiences.
       </p>
-      <p className="mt-4 text-base leading-relaxed text-[#4A4A4A] dark:text-[#B5B5B5] sm:text-lg">
+      <p className="mt-4 text-base leading-relaxed text-[#1A1A1A] dark:text-[#B5B5B5] sm:text-lg">
         I don&apos;t follow a fixed path. I explore ideas, experiment with tools, and build what feels meaningful.
         From digital experiences to historical curiosity, my work is driven by simplicity,
         creativity, and a constant desire to learn.

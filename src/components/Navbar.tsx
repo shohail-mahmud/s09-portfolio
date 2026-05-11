@@ -49,7 +49,7 @@ export default function Navbar() {
                   `transition-colors hover:text-[#000000] dark:hover:text-[#FFFFFF] ${
                     isActive
                       ? "text-[#000000] dark:text-[#FFFFFF]"
-                      : "text-[#4A4A4A] dark:text-[#B5B5B5]"
+                      : "text-[#1A1A1A] dark:text-[#B5B5B5]"
                   }`
                 }
               >
@@ -115,7 +115,7 @@ export default function Navbar() {
                   `text-2xl transition-colors hover:text-[#000000] dark:hover:text-[#FFFFFF] ${
                     isActive
                       ? "text-[#000000] dark:text-[#FFFFFF]"
-                      : "text-[#4A4A4A] dark:text-[#B5B5B5]"
+                      : "text-[#1A1A1A] dark:text-[#B5B5B5]"
                   }`
                 }
                 style={{ fontFamily: "var(--font-display)" }}
