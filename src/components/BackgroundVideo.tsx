@@ -68,7 +68,7 @@ export default function BackgroundVideo() {
       {isDark ? (
         <div className="absolute inset-0 bg-black/40" />
       ) : (
-        <div className="absolute inset-0 bg-white/25 backdrop-blur-[3px]" />
+        <div className="absolute inset-0 bg-white/12 backdrop-blur-[1.5px]" />
       )}
     </div>
   );
