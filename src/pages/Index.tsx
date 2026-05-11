@@ -12,8 +12,8 @@ export default function Home() {
           textShadow: "0 2px 10px rgba(0,0,0,0.15)",
         }}
       >
-        Between <span className="italic text-[#4A4A4A] dark:text-[#B5B5B5]">code</span> and{" "}
-        <span className="italic text-[#4A4A4A] dark:text-[#B5B5B5]">curiosity</span>, I explore and create.
+        Between <span className="italic text-[#1A1A1A] dark:text-[#B5B5B5]">code</span> and{" "}
+        <span className="italic text-[#1A1A1A] dark:text-[#B5B5B5]">curiosity</span>, I explore and create.
       </h1>
 
       <Link

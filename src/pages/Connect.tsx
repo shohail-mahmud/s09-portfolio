@@ -9,7 +9,7 @@ export default function Connect() {
       </h2>
 
       <div className="mt-10 flex flex-col items-center">
-        <span className="mb-4 text-sm text-[#4A4A4A] dark:text-[#B5B5B5]">Find me online</span>
+        <span className="mb-4 text-sm text-[#1A1A1A] dark:text-[#B5B5B5]">Find me online</span>
         <div className="flex flex-col items-center gap-6">
           <a
             href="https://instagram.com/shohailmahmud09"

@@ -7,7 +7,7 @@ export default function Archive() {
       >
         Archive
       </h2>
-      <p className="mt-8 text-base leading-relaxed text-[#4A4A4A] dark:text-[#B5B5B5] sm:text-lg">
+      <p className="mt-8 text-base leading-relaxed text-[#1A1A1A] dark:text-[#B5B5B5] sm:text-lg">
         A separate space dedicated to my long-term interest in currency and history.
       </p>
       <a
